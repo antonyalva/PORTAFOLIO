@@ -1,0 +1,285 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #0a0a0a;
+  --paper: #f3f1ec;
+  --mist: #9a9a9a;
+  --lime: #d4ff5a;
+}
+
+html {
+  scroll-behavior: auto; /* Lenis se encarga del suavizado */
+  background: var(--ink);
+}
+
+body {
+  background: var(--ink);
+  color: #f2f2f2;
+  overflow-x: clip; /* clip, NO hidden: hidden rompería los bloques sticky */
+}
+body.is-loading {
+  overflow: hidden;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+::selection {
+  background: var(--lime);
+  color: var(--ink);
+}
+
+/* ---------- Grano de película sobre todo ---------- */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+/* ---------- Tipografía gigante ---------- */
+.display {
+  font-family: var(--font-display), Impact, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 0.9;
+}
+.outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.28);
+}
+.outline-dark {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(10, 10, 10, 0.22);
+}
+.fade-bottom {
+  background: linear-gradient(180deg, #fff 35%, rgba(255, 255, 255, 0.15) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.fade-bottom-dark {
+  background: linear-gradient(180deg, var(--ink) 35%, rgba(10, 10, 10, 0.12) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Aparición al hacer scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 900ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--delay, 0ms);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Botones y enlaces ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 14px 22px;
+  border-radius: 999px;
+  transition:
+    background 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease,
+    transform 200ms ease;
+}
+.btn:hover {
+  background: #fff;
+  color: var(--ink);
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+.btn-lime {
+  background: var(--lime);
+  color: var(--ink);
+  border-color: var(--lime);
+}
+.btn-lime:hover {
+  background: #fff;
+  border-color: #fff;
+}
+
+/* ---------- Cursor personalizado ---------- */
+.cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 70;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition:
+    width 200ms ease,
+    height 200ms ease;
+}
+.cursor.is-link {
+  width: 56px;
+  height: 56px;
+}
+@media (hover: none) {
+  .cursor {
+    display: none;
+  }
+}
+
+/* ---------- Carrusel 3D ----------
+ * Cada tarjeta se gira y se empuja hacia afuera con CSS puro; GSAP sólo
+ * gira el anillo entero. (Ojo: no usar la clase `ring`, es una utilidad de
+ * Tailwind que pinta un borde.)
+ */
+.ring3d {
+  transform-style: preserve-3d;
+}
+.ring-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--card-w);
+  aspect-ratio: 3 / 4;
+  margin-left: calc(var(--card-w) / -2);
+  margin-top: calc(var(--card-w) * -0.6667);
+  transform: rotateY(calc(var(--i) * var(--step))) translateZ(var(--radius));
+  border-radius: 14px;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+  backface-visibility: hidden;
+}
+.ring-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* ---------- Rueda hexagonal ---------- */
+.hex-item {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--hex-w);
+  aspect-ratio: 3 / 4;
+  margin-left: calc(var(--hex-w) / -2);
+  margin-top: calc(var(--hex-w) * -0.6667);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+}
+.hex-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* ---------- Lista de proyectos ---------- */
+.row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: 24px;
+  padding: 28px 0;
+  border-top: 1px solid rgba(10, 10, 10, 0.12);
+  color: var(--ink);
+  transition: padding-left 300ms ease;
+}
+.row:hover {
+  padding-left: 18px;
+}
+.row:last-child {
+  border-bottom: 1px solid rgba(10, 10, 10, 0.12);
+}
+.preview {
+  position: fixed;
+  z-index: 40;
+  width: 260px;
+  aspect-ratio: 3 / 4;
+  border-radius: 12px;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.9) rotate(-4deg);
+  transition:
+    opacity 250ms ease,
+    transform 250ms ease;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+.preview.is-on {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1) rotate(0deg);
+}
+.preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* ---------- Loader ---------- */
+@keyframes dash {
+  to {
+    stroke-dashoffset: -1200;
+  }
+}
+.loader-path {
+  stroke-dasharray: 160 1040;
+  animation: dash 2.2s linear infinite;
+}
+
+/* ---------- Marquesina ---------- */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marquee var(--dur, 30s) linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .marquee-track,
+  .loader-path {
+    animation: none !important;
+  }
+}
