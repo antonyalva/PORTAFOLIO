@@ -47,11 +47,10 @@ export const portfolio = {
     titulo: "HABLEMOS",
     sub: "¿Tienes un evento, una marca o una idea rara? Escríbeme.",
     enlaces: [
-      { label: "WhatsApp", url: "https://wa.me/51999999999" }, // EDITAR
+      { label: "WhatsApp", url: "https://wa.me/19297358544" },
       { label: "Instagram", url: "https://instagram.com/" }, // EDITAR
       { label: "TikTok", url: "https://tiktok.com/" }, // EDITAR
-      { label: "GitHub", url: "https://github.com/antonyalva" },
-      { label: "Email", url: "mailto:hola@ejemplo.com" }, // EDITAR
+      { label: "Email", url: "mailto:antony_adrian.3@hotmail.com" },
     ],
   },
 };
