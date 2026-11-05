@@ -18,28 +18,29 @@ export const portfolio = {
   sobreMi: {
     titulo: "SOBRE MÍ",
     parrafos: [
-      "Odio las páginas aburridas. Las que se ven igual que todas, las que no se mueven, las que nadie recuerda.",
-      "Hago webs que se recorren como una historia: sobres que se abren con el dedo, cortinas de flores, tipografía que respira y detalles que nadie pidió pero todos notan.",
-      "Trabajo con Next.js, GSAP y Lenis, y entrego sitios estáticos rápidos que se ven perfectos en el celular, que es donde la gente realmente los abre.",
+      "Software Engineer con más de 6 años construyendo plataformas de banca y fintech. Experiencia sólida en Java 17 y Spring Boot, Angular y AWS, con enfoque en programación funcional, reactividad y arquitectura en la nube.",
+      "He trabajado en créditos hipotecarios, medios de pago y banca en proyectos ágiles: backend reactivo, serverless en AWS (Lambda, API Gateway, DynamoDB, Cognito), migraciones de Java 8 a 17 y CI/CD de punta a punta.",
     ],
   },
 
   frase: "No hago páginas para mirar.\nHago páginas para recorrer.",
 
   trayectoria: [
-    { anio: "2026", titulo: "Invitaciones web", detalle: "Sobres que se abren con el scroll, cortinas de flores, música, mapa y confirmación por WhatsApp." },
-    { anio: "2025", titulo: "Análisis de datos e IA", detalle: "Automatizaciones, modelos y tableros para decisiones de negocio." }, // EDITAR
-    { anio: "2024", titulo: "Desarrollo web", detalle: "Sitios de una página con animación de scroll, carrito y despliegue estático." },
-    { anio: "2023", titulo: "Autodidacta", detalle: "Aprendiendo a construir lo que quería ver en internet." }, // EDITAR
+    { anio: "2025", titulo: "Prestaclub", rol: "Software Engineer", periodo: "Ago 2025 — Actualidad", detalle: "Plataforma fintech de créditos hipotecarios con Java 17, Spring Boot 3 y Angular 17: minutas notariales automáticas, reembolsos, auditoría de usuarios, servidores en AWS y PostgreSQL." },
+    { anio: "2024", titulo: "Popular Bank", rol: "Software Engineer", periodo: "Jul 2024 — Jul 2025", detalle: "Front-end con Angular 17 y backend serverless en AWS: Lambda con Python, API Gateway, DynamoDB, Kinesis, Cognito y CI/CD con CodePipeline." },
+    { anio: "2023", titulo: "Diners Club", rol: "Software Engineer", periodo: "Abr 2023 — Jun 2024", detalle: "Plataforma web para comercios con Spring Boot y Angular 17, migración de Java 8 a Java 17 y sistemas legados en AS/400 con DB2." },
+    { anio: "2022", titulo: "Entel", rol: "Full Stack Developer · RIT", periodo: "Feb 2022 — Mar 2023", detalle: "APIs de ventas para la plataforma web de Entel Chile con Spring Boot y Oracle PL/SQL, y front-end con React y TypeScript bajo Scrum." },
+    { anio: "2021", titulo: "Zenprice", rol: "Developer · RIT", periodo: "Nov 2021 — Jun 2022", detalle: "Catálogos de productos con AWS Lambda en Python, Apache Spark en EMR y scripts de Ruby que recogen precios de múltiples operadores." },
+    { anio: "2020", titulo: "RIT", rol: "Ingeniero TI Chile / Perú", periodo: "Sep 2020 — Oct 2021", detalle: "Administración de AWS (EC2, ECS, Lambda, S3, IAM), monitoreo con CloudWatch, CloudTrail y X-Ray, y servidores Linux." },
   ],
 
   proyectos: [
-    { slug: "nicasio", nombre: "Nicasio & Anniko", tipo: "Invitación de boda", anio: "2026", img: "/img/proyectos/nicasio.jpg", url: "https://github.com/antonyalva/Nicasio-Anniko", color: "#8B9A6B", nota: "Cortina de flores que se abre y revela la foto." },
-    { slug: "milagros", nombre: "Mis 15 · Milagros", tipo: "Invitación de quince", anio: "2026", img: "/img/proyectos/milagros.jpg", url: "https://github.com/antonyalva/Carta", color: "#A3CCAD", nota: "Sobre con sello que se rompe al hacer scroll." },
-    { slug: "leonides", nombre: "Leonides y Dora", tipo: "Invitación de boda", anio: "2026", img: "/img/proyectos/leonides.jpg", url: "https://github.com/antonyalva/Leonides-y-Dora-Nuestro-Matrimonio", color: "#67833E", nota: "Sobre oliva, portada con la catarata, hojas de eucalipto cayendo." },
-    { slug: "aiko", nombre: "Mis 15 · Aiko", tipo: "Invitación de quince", anio: "2026", img: "/img/proyectos/aiko.jpg", url: "https://github.com/antonyalva/15-A-os-Aiko", color: "#E7AA51", nota: "Sobre kraft, hexágono dorado, destellos y mariposas." },
+    { slug: "aiko", nombre: "Mis 15 · Aiko", tipo: "Invitación de quince", anio: "2026", img: "/img/proyectos/aiko.jpg", url: "https://15-a-os-aiko.vercel.app/", color: "#E7AA51", nota: "Sobre kraft, hexágono dorado, destellos y mariposas." },
     { slug: "leonel", nombre: "Leonel & Draisy", tipo: "Invitación de boda", anio: "2026", img: "/img/proyectos/leonel.jpg", url: "#", color: "#AE9CD2", nota: "Lavanda, fotos con borde rasgado, pétalos cayendo." },
-    { slug: "mykes", nombre: "Mykes Store", tipo: "Tienda de una página", anio: "2025", img: "/img/proyectos/mykes.jpg", url: "#", color: "#F2C500", nota: "Carrusel de sabores, lata que cae entre nubes, carrito por WhatsApp." },
+    { slug: "flores", nombre: "Boutique de flores", tipo: "Tienda virtual", anio: "2026", img: "/img/proyectos/flores.jpg", url: "https://proyecto-floreria-alpha.vercel.app/", color: "#C9719A", nota: "Catálogo de arreglos, pedidos y pago en línea, pensado para celular." },
+    { slug: "bebida", nombre: "Marca de bebida", tipo: "Marca de producto", anio: "2026", img: "/img/proyectos/bebida.jpg", url: "https://proyecto-myke.vercel.app/", color: "#F2C500", nota: "Landing de producto con catálogo y presencia lista para redes." },
+    { slug: "comida", nombre: "Marca de comida", tipo: "Marca gastronómica", anio: "2026", img: "/img/proyectos/comida.jpg", url: "https://burgerlab-motion-website.vercel.app/", color: "#E0582B", nota: "Pieza de producto e identidad lista para campañas." },
+    { slug: "agencia", nombre: "Agencia digital", tipo: "Web de servicios", anio: "2026", img: "/img/proyectos/agencia.jpg", url: "#", color: "#378ADD", nota: "Sitio de servicios con secciones claras y navegación desde el celular." },
   ],
 
   contacto: {

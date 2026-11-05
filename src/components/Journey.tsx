@@ -52,12 +52,15 @@ export function Journey() {
               <br />
               he estado
             </h2>
-            <p className="mt-6 max-w-sm text-white/70">Mi recorrido por etapas, de la más reciente a la primera.</p>
+            <p className="mt-6 max-w-sm text-white/70">Más de 6 años construyendo software para banca y fintech, del más reciente al primero.</p>
           </div>
           {items.map((it, i) => (
             <article key={it.anio} className="w-[78vw] flex-none md:w-[44vw]">
               <span className="display block text-[clamp(3rem,9vw,8rem)] text-lime">{it.anio}</span>
               <h3 className="display mt-2 text-[clamp(1.8rem,5vw,4.2rem)] leading-[0.95] text-white">{it.titulo}</h3>
+              <p className="mt-3 text-[11px] uppercase tracking-[0.25em] text-white/60">
+                {it.rol} · {it.periodo}
+              </p>
               <p className="mt-5 max-w-md text-[clamp(0.95rem,1.4vw,1.15rem)] leading-relaxed text-white/75">{it.detalle}</p>
               <span className="mt-6 block text-[11px] uppercase tracking-[0.25em] text-white/40">
                 {String(i + 1).padStart(2, "0")} / {String(items.length).padStart(2, "0")}
